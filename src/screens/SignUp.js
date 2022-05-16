@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import flixerApi from '../api/flixerApi';
+import cinemaTecApi from '../api/cinemaTecApi';
 import { setToken } from '../store/slices/authSlice';
 import { validateEmail } from '../util/validators';
 import store from '../store/store';
@@ -38,7 +38,7 @@ const SignUp = () => {
         if (validFields()) {
             try {
                 setLoading(true);
-                const response = await flixerApi.post('/signup', { username, email, password });
+                const response = await cinemaTecApi.post('/signup', { username, email, password });
                 store.dispatch(setToken(response.data));
                 navigate('/');
             } catch (err) {
@@ -52,7 +52,7 @@ const SignUp = () => {
     return (
         <div className="signup-screen">
             <div className="signup-container">
-                <h1 className="title"><i className="bx bxs-movie"/> Flixer</h1>
+                <h1 className="title"><i className="bx bxs-movie"/> CinemaTEC</h1>
                 <div className="signup-form">
                     <h2>Sign up</h2>
                     <p>Created by movie lovers for movie lovcer</p>

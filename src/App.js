@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import flixerApi from './api/flixerApi';
+import cinemaTecApi from './api/cinemaTecApi';
 import { setUser } from './store/slices/userSlice';
 import { setMovies } from './store/slices/moviesSlice';
 import { setLists } from './store/slices/listsSlice';
@@ -27,13 +27,13 @@ function App() {
 			setLoading(true);
 			try {
 				// User data
-				const userResponse = await flixerApi.get('/user');
+				const userResponse = await cinemaTecApi.get('/user');
 				store.dispatch(setUser(userResponse.data));
 				// Movies data
-				const moviesResponse = await flixerApi.get('/movies');
+				const moviesResponse = await cinemaTecApi.get('/movies');
 				store.dispatch(setMovies(moviesResponse.data));
 				// Lists data
-				const listsResponse = await flixerApi.get('/lists');
+				const listsResponse = await cinemaTecApi.get('/lists');
 				store.dispatch(setLists(listsResponse.data));
 			} catch (err) {
 				console.error(err);
@@ -47,7 +47,7 @@ function App() {
 
 	if (!token) {
 		return (
-			<div className="flixer-app">
+			<div className="cinema-tec-app">
 				<Routes>
 					<Route exact path="/signup" element={<SignUp />} />
 					<Route path="*" element={<Login />} />
@@ -57,7 +57,7 @@ function App() {
 	}
 
 	return (
-		<div className="flixer-app">
+		<div className="cinema-tec-app">
 			{loading
 				?	<LoadingSpinner centered />
 				:	<>

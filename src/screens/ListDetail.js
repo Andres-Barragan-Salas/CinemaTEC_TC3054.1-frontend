@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import flixerApi from '../api/flixerApi';
+import cinemaTecApi from '../api/cinemaTecApi';
 import { setLists } from '../store/slices/listsSlice';
 import store from '../store/store';
 import { validateEmail } from '../util/validators';
@@ -21,7 +21,7 @@ const ListDetail = (params) => {
 
     const fetchMoviesAsync = async () => {
         try {
-            const response = await flixerApi.get(`/movieList/${id}`);
+            const response = await cinemaTecApi.get(`/movieList/${id}`);
             setMovies(response.data);
         } catch (err) {
             console.error(err);
@@ -50,7 +50,7 @@ const ListDetail = (params) => {
             try {
                 setAddUserOpen(false);
                 setMovies(null);
-                const response = await flixerApi.put('/lists', { id, partnerEmail });
+                const response = await cinemaTecApi.put('/lists', { id, partnerEmail });
                 store.dispatch(setLists(response.data));
                 setPartnerEmail('');
                 fetchMoviesAsync();

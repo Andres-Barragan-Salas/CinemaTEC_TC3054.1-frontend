@@ -1,10 +1,10 @@
 :root {
-	--main-color: #171D22;
-	--secondary-color: #292C34;
-	--action-blue: #0070FF;
-	--white-panel: #FFFFFF06;
+	--main-color: #757F9A;
+	--secondary-color: #D7DDE8;
+	--action-blue: #2193b0;
+	--white-panel: #FFFFFF1F;
 	--white-outline: #FFFFFF50;
-	--white-text: #FFFFFF80;
+	--white-text: #FFFFFFA0;
 	--highlight-color: #E6AA06;
 	--max-width: 1400px;
 }
@@ -17,19 +17,19 @@
 	color: #fff;
 }
 
-.flixer-app {
+.cinema-tec-app {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	background: radial-gradient(at bottom right, var(--secondary-color), var(--main-color));
 }
 
-.flixer-app a {
+.cinema-tec-app a {
 	color: var(--action-blue);
 	font-weight: bold;
 }
 
-.flixer-app .button {
+.cinema-tec-app .button {
 	cursor: pointer;
 	border: none;
 	background: none;
@@ -37,19 +37,20 @@
 	border-radius: 8px;
 }
 
-.flixer-app .button.primary {
+.cinema-tec-app .button.primary {
 	background: var(--action-blue);
 	color: #fff;
 }
 
-.flixer-app .button.primary:hover {
+.cinema-tec-app .button.primary:hover {
 	opacity: 0.8;
 }
 
-.flixer-app input:-webkit-autofill,
-.flixer-app input:-webkit-autofill:hover, 
-.flixer-app input:-webkit-autofill:focus, 
-.flixer-app input:-webkit-autofill:active{
+.cinema-tec-app input:-webkit-autofill,
+.cinema-tec-app input:-webkit-autofill:hover, 
+.cinema-tec-app input:-webkit-autofill:focus, 
+.cinema-tec-app input:-webkit-autofill:active{
+	box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
     -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.8) inset !important;
 	-webkit-text-fill-color: #fff !important;
 }

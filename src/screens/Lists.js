@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import flixerApi from '../api/flixerApi';
+import cinemaTecApi from '../api/cinemaTecApi';
 import { setLists } from '../store/slices/listsSlice';
 import store from '../store/store';
 import { validateEmail } from '../util/validators';
@@ -43,7 +43,7 @@ const Lists = () => {
             setLoading(true);
             try {
                 setListCreationOpen(false);
-                const response = await flixerApi.post('/lists', { name, partnerEmail });
+                const response = await cinemaTecApi.post('/lists', { name, partnerEmail });
                 store.dispatch(setLists(response.data));
                 setListForm({ name: '', partnerEmail: '' });
             } catch (err) {
@@ -57,7 +57,7 @@ const Lists = () => {
     const deleteList = async (e, id) => {
         e.stopPropagation();
         try {
-            const response = await flixerApi.delete('/lists', { data: { id }});
+            const response = await cinemaTecApi.delete('/lists', { data: { id }});
             store.dispatch(setLists(response.data));
         } catch (err) {
             console.error(err);

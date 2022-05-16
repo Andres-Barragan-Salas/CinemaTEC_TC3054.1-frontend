@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import flixerApi from '../api/flixerApi';
+import cinemaTecApi from '../api/cinemaTecApi';
 import { setToken } from '../store/slices/authSlice';
 import { validateEmail } from '../util/validators';
 import store from '../store/store';
@@ -37,7 +37,7 @@ const Login = () => {
         if (validFields()) {
             try {
                 setLoading(true);
-                const response = await flixerApi.post('/signin', {email, password});
+                const response = await cinemaTecApi.post('/signin', {email, password});
                 store.dispatch(setToken(response.data));
                 navigate('/');
             } catch (err) {
@@ -51,7 +51,7 @@ const Login = () => {
     return (
         <div className="login-screen">
             <div className="login-container">
-                <h1 className="title"><i className="bx bxs-movie"/> Flixer</h1>
+                <h1 className="title"><i className="bx bxs-movie"/> CinemaTEC</h1>
                 <div className="login-form">
                     <h2>Log in</h2>
                     <p>Log in to view your movie lists</p>
@@ -68,7 +68,7 @@ const Login = () => {
                 </div>
                 <div className="singup-prompt">
                     <p>Don't have an account yet?</p>
-                    <Link to="/signup">Sing up</Link>
+                    <Link to="/signup">Sign up</Link>
                 </div>
             </div>  
         </div>

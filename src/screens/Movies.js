@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import flixerApi from '../api/flixerApi';
+import cinemaTecApi from '../api/cinemaTecApi';
 import { setUser } from '../store/slices/userSlice';
 import LoadingSpinner from '../components/LoadingSpinner';
 import store from '../store/store';
@@ -18,10 +18,10 @@ const Movies = () => {
         try {
             let response;
             if (like) {
-                await flixerApi.delete('/user/movie/unlike', { data: { id }});
-                response = await flixerApi.post('/user/movie/like', { id });
+                await cinemaTecApi.delete('/user/movie/unlike', { data: { id }});
+                response = await cinemaTecApi.post('/user/movie/like', { id });
             } else {
-                response = await flixerApi.delete('/user/movie/like', { data: { id }});
+                response = await cinemaTecApi.delete('/user/movie/like', { data: { id }});
             }
             store.dispatch(setUser(response.data));
         } catch (err) {
@@ -36,10 +36,10 @@ const Movies = () => {
         try {
             let response;
             if (unlike) {
-                await flixerApi.delete('/user/movie/like', { data: { id }});
-                response = await flixerApi.post('/user/movie/unlike', { id });
+                await cinemaTecApi.delete('/user/movie/like', { data: { id }});
+                response = await cinemaTecApi.post('/user/movie/unlike', { id });
             } else {
-                response = await flixerApi.delete('/user/movie/unlike', { data: { id }});
+                response = await cinemaTecApi.delete('/user/movie/unlike', { data: { id }});
             }
             store.dispatch(setUser(response.data));
         } catch (err) {

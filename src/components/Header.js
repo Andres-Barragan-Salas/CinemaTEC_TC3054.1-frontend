@@ -33,11 +33,11 @@ const Header = () => {
     };
 
     return (
-        <header className="flixer-header">
+        <header className="cinema-tec-header">
             <div className="safe-area">
                 <div className="header-container">
                     <div className="header-left">
-                        <h1 className="title"><i className="bx bxs-movie"/> Flixer</h1>
+                        <h1 className="title"><i className="bx bxs-movie"/> CinemaTEC</h1>
                         <Link to="/" className={pathname === '/' ? 'active' : ''}>Movies</Link>
                         <Link to="/lists" className={pathname === '/lists' ? 'active' : ''}>My lists</Link>
                     </div>
