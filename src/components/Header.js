@@ -40,6 +40,7 @@ const Header = () => {
                         <h1 className="title"><i className="bx bxs-movie"/> CinemaTEC</h1>
                         <Link to="/" className={pathname === '/' ? 'active' : ''}>Movies</Link>
                         <Link to="/lists" className={pathname === '/lists' ? 'active' : ''}>My lists</Link>
+                        <Link to="/mymovies" className={pathname === '/mymovies' ? 'active' : ''}>My Movies</Link>
                     </div>
                     <div className="header-right">
                         <h2>Welcome <span>{username}</span>!</h2>

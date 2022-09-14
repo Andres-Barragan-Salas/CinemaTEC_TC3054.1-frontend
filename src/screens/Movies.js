@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import cinemaTecApi from '../api/cinemaTecApi';
+import youtube from '../api/youtube';
 import { setUser } from '../store/slices/userSlice';
+import { setMovieDetails } from '../store/slices/movieDetailsSlice';
 import LoadingSpinner from '../components/LoadingSpinner';
 import store from '../store/store';
+import { Link } from 'react-router-dom'
 
 import './Movies.css';
 
@@ -31,6 +34,16 @@ const Movies = () => {
         setLoading(false);
     };
 
+    const getVideo = async(title,overview, id)=>{
+        setLoading(true);
+            const res = await youtube.get('/search', {
+                params:{
+                    q:`${title} trailer`
+                }
+            })
+            store.dispatch(setMovieDetails({videoId:res.data.items[0].id.videoId, description:overview, id:id}))
+        setLoading(false);
+    }
     const unlikeMovie = async (id, unlike) => {
         setLoading(true);
         try {
@@ -72,6 +85,7 @@ const Movies = () => {
                         <div className="options-container">
                             <button disabled={loading} onClick={() => unlikeMovie(_id, !unliked)}>{!loading ? <i className={`bx bx${unliked ? 's' : ''}-dislike`} /> : <LoadingSpinner small colored />}</button>
                             <button disabled={loading} onClick={() => likeMovie(_id, !liked)}>{!loading ? <i className={`bx bx${liked ? 's' : ''}-like`} /> : <LoadingSpinner small />}</button>
+                            <Link to={`/movie/${title}`}> <button onClick={()=>getVideo(title, overview, _id)}>i</button></Link>
                         </div>
                     </div>
                 </div>

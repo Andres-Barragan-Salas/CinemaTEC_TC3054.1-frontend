@@ -15,7 +15,8 @@ import Movies from './screens/Movies';
 import Lists from './screens/Lists';
 import ListDetail from './screens/ListDetail';
 import NotFound from './screens/NotFound';
-
+import MovieDetails from './screens/MovieDetails';
+import OwnedMovies from './screens/OwnedMovies';
 import './App.css';
 
 function App() {
@@ -66,6 +67,8 @@ function App() {
 							<Route exact path="/" element={<Movies />} />
 							<Route exact path="/lists" element={<Lists />} />
 							<Route exact path="/lists/:id" element={<ListDetail />} />
+							<Route exact path="/movie/:id" element={<MovieDetails />} />
+							<Route exact path="/mymovies" element={<OwnedMovies />} />
 							<Route path="*" element={<NotFound />} />
 						</Routes>
 					</>

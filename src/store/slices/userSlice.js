@@ -6,14 +6,15 @@ export const userSlice = createSlice({
         username: null,
         email: null,
         likedMovies: [],
-        unlikedMovies: []
+        unlikedMovies: [],
+        purchesedMovies: []
     },
     reducers: {
         setUser: (_state, { payload }) => {
             return { ...payload };
         },
         resetUser: () => {
-            return { username: null, email: null, likedMovies: [], unlikedMovies: [] };
+            return { username: null, email: null, likedMovies: [], unlikedMovies: [], purchasedMovies: [] };
         }
     }
 });
