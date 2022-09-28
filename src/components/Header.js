@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { removeToken } from '../store/slices/authSlice';
 import store from '../store/store';
@@ -37,15 +37,15 @@ const Header = () => {
             <div className="safe-area">
                 <div className="header-container">
                     <div className="header-left">
-                        <h1 className="title"><i className="bx bxs-movie"/> CinemaTEC</h1>
+                        <h1 className="title"><i className="bx bxs-movie" /> CinemaTEC</h1>
                         <Link to="/" className={pathname === '/' ? 'active' : ''}>Movies</Link>
                         <Link to="/lists" className={pathname === '/lists' ? 'active' : ''}>My lists</Link>
-                        <Link to="/mymovies" className={pathname === '/mymovies' ? 'active' : ''}>My Movies</Link>
+                        <Link to="/my-movies" className={pathname === '/my-movies' ? 'active' : ''}>My Movies</Link>
                     </div>
                     <div className="header-right">
                         <h2>Welcome <span>{username}</span>!</h2>
                         <div className="options-container">
-                            <button className="user-button" onClick={() => setOptionsOpen(!optionsOpen)}><i className="bx bxs-user-circle"/></button>
+                            <button className="user-button" onClick={() => setOptionsOpen(!optionsOpen)}><i className="bx bxs-user-circle" /></button>
                             <button ref={ref} className={`logout-button ${optionsOpen ? 'active' : ''}`} disabled={!optionsOpen} onClick={logout}>Logout</button>
                         </div>
                     </div>

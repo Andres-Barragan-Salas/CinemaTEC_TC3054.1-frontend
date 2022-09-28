@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import cinemaTecApi from './api/cinemaTecApi';
-import { setUser } from './store/slices/userSlice';
-import { setMovies } from './store/slices/moviesSlice';
-import { setLists } from './store/slices/listsSlice';
-import LoadingSpinner from './components/LoadingSpinner';
-import Header from './components/Header';
-import store from './store/store';
-import Login from './screens/Login';
-import SignUp from './screens/SignUp';
-import Movies from './screens/Movies';
-import Lists from './screens/Lists';
-import ListDetail from './screens/ListDetail';
-import NotFound from './screens/NotFound';
-import MovieDetails from './screens/MovieDetails';
-import OwnedMovies from './screens/OwnedMovies';
 import './App.css';
+import Header from './components/Header';
+import LoadingSpinner from './components/LoadingSpinner';
+import ListDetail from './screens/ListDetail';
+import Lists from './screens/Lists';
+import Login from './screens/Login';
+import MovieDetails from './screens/MovieDetails';
+import Movies from './screens/Movies';
+import NotFound from './screens/NotFound';
+import OwnedMovies from './screens/OwnedMovies';
+import SignUp from './screens/SignUp';
+import { setLists } from './store/slices/listsSlice';
+import { setMovies } from './store/slices/moviesSlice';
+import { setUser } from './store/slices/userSlice';
+import store from './store/store';
 
 function App() {
 	const { token } = useSelector(state => state.auth);
@@ -60,18 +60,18 @@ function App() {
 	return (
 		<div className="cinema-tec-app">
 			{loading
-				?	<LoadingSpinner centered />
-				:	<>
-						<Header />
-						<Routes>
-							<Route exact path="/" element={<Movies />} />
-							<Route exact path="/lists" element={<Lists />} />
-							<Route exact path="/lists/:id" element={<ListDetail />} />
-							<Route exact path="/movie/:id" element={<MovieDetails />} />
-							<Route exact path="/mymovies" element={<OwnedMovies />} />
-							<Route path="*" element={<NotFound />} />
-						</Routes>
-					</>
+				? <LoadingSpinner centered />
+				: <>
+					<Header />
+					<Routes>
+						<Route exact path="/" element={<Movies />} />
+						<Route exact path="/lists" element={<Lists />} />
+						<Route exact path="/lists/:id" element={<ListDetail />} />
+						<Route exact path="/movie/:id" element={<MovieDetails />} />
+						<Route exact path="/my-movies" element={<OwnedMovies />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</>
 			}
 		</div>
 	);

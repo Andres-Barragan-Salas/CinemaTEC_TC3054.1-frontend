@@ -36,6 +36,13 @@
     border-radius: 20px;
 }
 
+.movies-screen .movie-display .movie-image iframe {
+    width: 30vw;
+    aspect-ratio: 2;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
 .movies-screen .movie-display .movie-image label {
     position: absolute;
     background: var(--highlight-color);
@@ -98,8 +105,25 @@
     justify-content: center;
 }
 
+.movies-screen .options-container button.text {
+    cursor: pointer;
+    border: none;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: var(--main-color);
+    display: block;
+    font-size: 14px;
+    width: auto;
+    aspect-ratio: auto;
+}
+
 .movies-screen .options-container button:hover {
     opacity: 0.8;
+}
+
+.movies-screen .options-container button:disabled {
+    opacity: 0.5;
 }
 
 @media only screen and (max-width: 450px) {
